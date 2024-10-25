@@ -1,7 +1,8 @@
 package com.org.raphaelprojects.taskger;
 import java.util.Scanner;
 
-public class Taskger {
+
+public class sessaoprincipal {
     public static void main (String [] args){
         Scanner scanner = new Scanner (System.in);
 
@@ -19,8 +20,14 @@ public class Taskger {
 
             case 1:
 
+                System.out.println("Digite a prioridade da sua tarefa: ");
+                int prioridade = scanner.nextInt();
 
+                System.out.println("Digite o título da sua tarefa: ");
+                String nomeTarefa = scanner.next();
 
+                System.out.println("Por fim, digite um breve resumo de sua tarefa: ");
+                String descricao = scanner.next();
 
 
         }

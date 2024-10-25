@@ -38,6 +38,15 @@ public class Tarefa {
     public void setConcluida(boolean concluida) {
         this.concluida = concluida;
     }
+
+    public Tarefa (int prioridade, String nomeTarefa, String descricao, boolean concluida){
+
+        this.prioridade = prioridade;
+        this.nomeTarefa = nomeTarefa;
+        this.descricao = descricao;
+        this.concluida = concluida;
+
+    }
 }
 
 
