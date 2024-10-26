@@ -58,7 +58,7 @@ public class Tarefa {
 
     public String toString(){
 
-        return "Tarefa: " + descricao;
+        return "Tarefa: " + nomeTarefa + " | Prioridade: " + prioridade + " | Descrição: " + descricao + " | Está concluida ? " + (concluida ? "Sim" : "Não");
 
     }
 }

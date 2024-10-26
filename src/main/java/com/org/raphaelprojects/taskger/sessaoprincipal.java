@@ -1,15 +1,11 @@
 package com.org.raphaelprojects.taskger;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class sessaoprincipal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Gerenciador Gerenciador = new Gerenciador();
-
-
-
 
         boolean continuar = true;
 
@@ -19,13 +15,13 @@ public class sessaoprincipal {
                 Bem vindo ao TaskGer !
                 Seu App confiável de gerenciamento de tarefas!
                 Digite uma das opções abaixo:
-                1- Adicionar uma tarefa
+                \n1- Adicionar uma tarefa
                 2- Concluir uma tarefa
                 3- Ver tarefas ativas""");
 
             int escolhaInterface = scanner.nextInt();
 
-            switch (escolhaInterface) {
+             switch (escolhaInterface) {
 
                 case 1:
 
@@ -45,8 +41,8 @@ public class sessaoprincipal {
                     Gerenciador.addTarefa(novaTarefa);
 
                     System.out.println("Tarefa adicionada com sucesso !");
+                    Gerenciador.getTarefas().sort(Comparator.comparingInt(Tarefa::getPrioridade));
                     break;
-
 
                 case 2:
 
@@ -56,15 +52,21 @@ public class sessaoprincipal {
 
                     }
                    else {
-                        System.out.println("Selecione uma das tarefas");
-
-                        for (int i = 0; i < Gerenciador.getTarefas().size() ; i++){
-
-                            System.out.println(i + "-" +Gerenciador.getTarefas());
-
+                        System.out.println("Selecione uma das tarefas para concluir: ");
+                        ArrayList<Tarefa> tarefas = Gerenciador.getTarefas();
+                        for (int i = 0; i < tarefas.size(); i++) {
+                            System.out.println(i + " - " + tarefas.get(i));
                         }
-                        break;
+
+                        int indice = scanner.nextInt();
+                        Gerenciador.concluirTarefa(indice);
                     }
+                        break;
+
+                   case 3:
+                        System.out.println("Cheque as tarefas abaixo: ");
+                        System.out.println(Gerenciador.getTarefas());
+                         break;
             }
         }
     }
