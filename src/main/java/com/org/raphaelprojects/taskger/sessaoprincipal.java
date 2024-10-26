@@ -1,10 +1,12 @@
 package com.org.raphaelprojects.taskger;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 
 public class sessaoprincipal {
-    public static void main (String [] args){
-        Scanner scanner = new Scanner (System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Gerenciador Gerenciador = new Gerenciador();
 
         System.out.println("""
                 Bem vindo ao TaskGer !
@@ -15,24 +17,42 @@ public class sessaoprincipal {
                 3- Ver tarefas ativas""");
 
         int escolhaInterface = scanner.nextInt();
+        boolean continuar = true;
 
-        switch (escolhaInterface){
+        while (continuar) {
 
-            case 1:
+            switch (escolhaInterface) {
 
-                System.out.println("Digite a prioridade da sua tarefa: ");
-                int prioridade = scanner.nextInt();
+                case 1:
 
-                System.out.println("Digite o título da sua tarefa: ");
-                String nomeTarefa = scanner.next();
+                    System.out.println("Digite a prioridade da sua tarefa: ");
+                    int prioridade = scanner.nextInt();
 
-                System.out.println("Por fim, digite um breve resumo de sua tarefa: ");
-                String descricao = scanner.next();
+                    System.out.println("Digite o título da sua tarefa: ");
+                    String nomeTarefa = scanner.next();
+
+                    System.out.println("Por fim, digite um breve resumo de sua tarefa: ");
+                    String descricao = scanner.next();
+                    boolean concluida = true;
+
+
+
+                    Tarefa novaTarefa = new Tarefa(prioridade, nomeTarefa, descricao, concluida);
+                    Gerenciador.addTarefa(novaTarefa);
+
+                    System.out.println(Gerenciador.getTarefas());
+                    break;
+
+
+                case 0:
+
+                    System.out.println(Gerenciador.getTarefas());
+                    continuar = false;
+                    break;
+
+            }
 
 
         }
-
-
-
     }
 }
