@@ -8,7 +8,14 @@ public class sessaoprincipal {
         Scanner scanner = new Scanner(System.in);
         Gerenciador Gerenciador = new Gerenciador();
 
-        System.out.println("""
+
+
+
+        boolean continuar = true;
+
+        while (continuar) {
+
+            System.out.println("""
                 Bem vindo ao TaskGer !
                 Seu App confiável de gerenciamento de tarefas!
                 Digite uma das opções abaixo:
@@ -16,10 +23,7 @@ public class sessaoprincipal {
                 2- Concluir uma tarefa
                 3- Ver tarefas ativas""");
 
-        int escolhaInterface = scanner.nextInt();
-        boolean continuar = true;
-
-        while (continuar) {
+            int escolhaInterface = scanner.nextInt();
 
             switch (escolhaInterface) {
 
@@ -33,26 +37,35 @@ public class sessaoprincipal {
 
                     System.out.println("Por fim, digite um breve resumo de sua tarefa: ");
                     String descricao = scanner.next();
-                    boolean concluida = true;
+                    boolean concluida = false;
 
 
 
                     Tarefa novaTarefa = new Tarefa(prioridade, nomeTarefa, descricao, concluida);
                     Gerenciador.addTarefa(novaTarefa);
 
-                    System.out.println(Gerenciador.getTarefas());
+                    System.out.println("Tarefa adicionada com sucesso !");
                     break;
 
 
-                case 0:
+                case 2:
 
-                    System.out.println(Gerenciador.getTarefas());
-                    continuar = false;
-                    break;
+                    if (Gerenciador.getTarefas().isEmpty()){
 
+                        System.out.println("Oba ! nenhuma tarefa pendente");
+
+                    }
+                   else {
+                        System.out.println("Selecione uma das tarefas");
+
+                        for (int i = 0; i < Gerenciador.getTarefas().size() ; i++){
+
+                            System.out.println(i + "-" +Gerenciador.getTarefas());
+
+                        }
+                        break;
+                    }
             }
-
-
         }
     }
 }
