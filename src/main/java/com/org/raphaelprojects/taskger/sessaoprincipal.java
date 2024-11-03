@@ -15,7 +15,8 @@ public class sessaoprincipal {
                 Bem vindo ao TaskGer !
                 Seu App confiável de gerenciamento de tarefas!
                 Digite uma das opções abaixo:
-                \n1- Adicionar uma tarefa
+                \n0- Sair do TaskGer
+                1- Adicionar uma tarefa
                 2- Concluir uma tarefa
                 3- Ver tarefas ativas""");
 
@@ -31,8 +32,10 @@ public class sessaoprincipal {
                     System.out.println("Digite o título da sua tarefa: ");
                     String nomeTarefa = scanner.next();
 
+                    scanner.nextLine();
+
                     System.out.println("Por fim, digite um breve resumo de sua tarefa: ");
-                    String descricao = scanner.next();
+                    String descricao = scanner.nextLine();
                     boolean concluida = false;
 
 
@@ -66,6 +69,12 @@ public class sessaoprincipal {
                    case 3:
                         System.out.println("Cheque as tarefas abaixo: ");
                         System.out.println(Gerenciador.getTarefas());
+                         break;
+
+                    case 0:
+                         System.out.println("Obrigado por usar o TaskGer !");
+                         scanner.close();
+                         continuar = false;
                          break;
             }
         }

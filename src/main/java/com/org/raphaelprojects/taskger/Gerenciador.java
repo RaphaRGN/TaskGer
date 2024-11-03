@@ -14,6 +14,11 @@ public class Gerenciador {
 
     public ArrayList<Tarefa> getTarefas(){
 
+        if (listaDeTarefas.isEmpty()){
+
+            System.out.println("Está lista está bem vazia.");
+        }
+
         return listaDeTarefas;
 
     }
@@ -27,6 +32,13 @@ public class Gerenciador {
             System.out.println("Tarefa " + tarefa.getNomeTarefa() + " concluida ");
             listaDeTarefas.remove(indice);
         }
+
+        else if (listaDeTarefas.isEmpty()) {
+
+            System.out.print("Oba ! nenhuma tarefa para concluir.");
+
+        }
+
         else {
 
             System.out.println("índice inválido");
